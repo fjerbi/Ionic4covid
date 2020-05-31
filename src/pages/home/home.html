@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home Page</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides pager="true">
+    <ion-slide>
+      <h1>Slide 1</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 2</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 3</h1>
+    </ion-slide>
+  </ion-slides>
+
+
+
+
+<h1>Updated on : {{yesterday|date}}</h1>
+
+
+<ion-searchbar placeholder="Search by any criteria" animated  [(ngModel)]="term"></ion-searchbar>
+    <ion-item *ngFor="let post of posts| filter:term" text-wrap>
+
+      <h2>Country Name: {{post.region.name}}</h2>
+
+     <ion-badge color="success">Confirmed : {{post.confirmed}}</ion-badge>
+     <ion-badge color="secondary">Active : {{post.active}}</ion-badge>
+     <ion-badge color="danger">Deaths : {{post.deaths}}</ion-badge>
+     <ion-badge color="success">Recoverd : {{post.recovered}}</ion-badge>
+     <ion-badge color="soft-pink">Date : {{post.date|date}}</ion-badge>
+
+      <button ion-fab mini (click)="covidmap()"><ion-icon name="globe-outline"></ion-icon></button>
+
+    </ion-item>
+
+
+
+</ion-content>
